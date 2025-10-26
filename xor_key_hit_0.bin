@@ -1,0 +1,4 @@
+// Dump Ref object memory leaks if (__refAllocationList.empty()) { log([memory] All Ref objects successfully cleaned up (no leaks detected).
+); } else { log([memory] WARNING: %d Ref objects still active in memory.
+, (int)__refAllocationList.size()); for (const auto& ref : __refAllocationList) { CC_ASSERT(ref); const char* type = typeid(*ref).name(); log([memory] LEAK: Ref object %s still active with reference count %d.
+, (type ? type : ), ref->getReferenceCount()); }}
